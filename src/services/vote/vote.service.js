@@ -1,5 +1,5 @@
 // Initializes the `vote` service on path `/vote`
-const createService = require('./vote.class.js');
+const createService = require('feathers-nedb');
 const createModel = require('../../models/vote.model');
 const hooks = require('./vote.hooks');
 
@@ -18,6 +18,6 @@ module.exports = function (app) {
 
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('vote');
-
   service.hooks(hooks);
+
 };
