@@ -1,14 +1,16 @@
 // Initializes the `vote` service on path `/vote`
 const createService = require('./vote.class.js');
+const createModel = require('../../models/vote.model');
 const hooks = require('./vote.hooks');
 
 module.exports = function (app) {
-  
+  const Model = createModel(app);
   const paginate = app.get('paginate');
 
   const options = {
     name: 'vote',
-    paginate
+    paginate,
+    Model
   };
 
   // Initialize our service with any options it requires
